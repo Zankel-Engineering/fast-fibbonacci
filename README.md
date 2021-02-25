@@ -1,4 +1,4 @@
-# fast-fibbonacci in TypeScript
+# Fast fibbonacci in TypeScript
 
 ```typescript
 const len = 100;

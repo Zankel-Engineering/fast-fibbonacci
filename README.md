@@ -1,4 +1,4 @@
-# fast-fibbonacci
+# fast-fibbonacci in TypeScript
 
 ```typescript
 const fibos: Array<number> = Array.apply(null, new Array(100)).map(()=> 0);;

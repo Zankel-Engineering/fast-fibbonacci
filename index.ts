@@ -1,5 +1,5 @@
 // @ts-nocheck
-const len = 1000;
+const len = 10000;
 const fibos: Array<bigint> = Array.apply(null, new Array(len)).map(()=> 0n);
 const fibo: (n: number, fibos: bigint[]) => bigint = (n, fibos) => {
   if ( n === 1 || n === 0 ) {
@@ -20,4 +20,4 @@ for ( let i = 1; i < len; i++ ) {
   }
 }
 // You can use the numbers from array
-console.log(fibos[999]);
+console.log(fibos[9999]);

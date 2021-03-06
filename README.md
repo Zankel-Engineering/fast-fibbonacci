@@ -1,24 +1,27 @@
 # Fast fibbonacci in TypeScript
 
 ```typescript
-const len = 100;
-const fibos: Array<number> = Array.apply(null, new Array(len)).map(()=> 0);;
-const fibo: (n: number, fibos: number[]) => number = (n, fibos) => {
+declare var BigInt;
+const len = 100000;
+const fibos: Array<bigint> = Array.apply(null, new Array(len)).map(()=> BigInt(0));
+const fibo: (n: number, fibos: bigint[]) => bigint = (n, fibos) => {
   if ( n === 1 || n === 0 ) {
-    return n;
+    return BigInt(n);
   }
-  if ( fibos[n - 1] === 0 ) {
+  if ( fibos[n - 1] === BigInt(0) ) {
     fibos[n - 1] = fibo(n - 1, fibos);
   }
-  if ( fibos[n - 2] === 0 ) {
+  if ( fibos[n - 2] === BigInt(0) ) {
     fibos[n - 2] = fibo(n - 1, fibos);
   }
-  return fibos[n - 1] + fibos[n - 2];
+  return BigInt(fibos[n - 1] + fibos[n - 2]);
 }
 for ( let i = 1; i < len; i++ ) {
-  if ( fibos[i] === 0 ) {
+  // @ts-ignore
+  if ( fibos[i] === 0n ) {
     fibos[i] = fibo(i, fibos);
   }
 }
-console.log(fibos[40]);
+// You can use the numbers from array
+console.log(fibos[len - 1]);
 ```
